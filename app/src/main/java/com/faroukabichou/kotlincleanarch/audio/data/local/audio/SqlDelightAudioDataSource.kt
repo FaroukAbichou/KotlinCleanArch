@@ -1,7 +1,7 @@
 package com.faroukabichou.kotlincleanarch.audio.data.local.audio
 
 import com.faroukabichou.kotlincleanarch.audio.domain.Audio
-import data
+import database.MyDatabase
 
 class AudioDao(
     audioDatabase: MyDatabase
