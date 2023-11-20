@@ -1,0 +1,41 @@
+CREATE TABLE catEntity(
+id TEXT PRIMARY KEY,
+    width INTEGER,
+        height INTEGER,
+            url TEXT
+);
+
+getcatById:
+SELECT * FROM catEntity WHERE id = ?;
+
+getAllCats:
+SELECT * FROM catEntity;
+
+insertCat:
+INSERT INTO catEntity(
+id,
+    url,
+        width,
+            height
+    ) VALUES(
+    ?,
+     ?,
+      ?,
+      ?
+      );
+
+replaceCat:
+REPLACE INTO catEntity(
+id,
+    url,
+        width,
+            height
+    ) VALUES(
+    ?,
+     ?,
+      ?,
+      ?
+      );
+
+deleteCat:
+DELETE FROM catEntity WHERE id = ?;

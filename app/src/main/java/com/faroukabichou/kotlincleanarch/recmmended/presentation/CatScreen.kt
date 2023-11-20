@@ -8,13 +8,13 @@ import com.faroukabichou.kotlincleanarch.home.presentation.KcError
 import com.faroukabichou.kotlincleanarch.home.presentation.KcLoading
 import com.faroukabichou.kotlincleanarch.recmmended.presentation.component.RecommendedContent
 import com.faroukabichou.kotlincleanarch.recmmended.presentation.component.RecommendedScreenTopBar
-import com.faroukabichou.kotlincleanarch.recmmended.presentation.event.RecommendedEvent
-import com.faroukabichou.kotlincleanarch.recmmended.presentation.state.RecommendedState
+import com.faroukabichou.kotlincleanarch.recmmended.presentation.event.CatScreenEvent
+import com.faroukabichou.kotlincleanarch.recmmended.presentation.state.CatState
 
 @Composable
-fun RecommendedScreen(
-    state: RecommendedState,
-    onEvent: (RecommendedEvent) -> Unit,
+fun CatScreen(
+    state: CatState,
+    onEvent: (CatScreenEvent) -> Unit,
     selectedAudioId: String,
     navigateBack: () -> Unit,
 ) {
@@ -33,7 +33,7 @@ fun RecommendedScreen(
             } else if (state.isFailure) {
                 KcError(
                     message = "Error",
-                    retry = { onEvent(RecommendedEvent.Refresh) }
+                    retry = { onEvent(CatScreenEvent.Refresh) }
                 )
             } else {
                 RecommendedContent(

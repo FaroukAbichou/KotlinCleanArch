@@ -12,13 +12,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.faroukabichou.kotlincleanarch.core.theme.KcTheme
-import com.faroukabichou.kotlincleanarch.recmmended.presentation.event.RecommendedEvent
-import com.faroukabichou.kotlincleanarch.recmmended.presentation.state.RecommendedState
+import com.faroukabichou.kotlincleanarch.recmmended.presentation.event.CatScreenEvent
+import com.faroukabichou.kotlincleanarch.recmmended.presentation.state.CatState
 
 @Composable
 fun RecommendedContent(
-    state: RecommendedState,
-    onEvent: (RecommendedEvent) -> Unit,
+    state: CatState,
+    onEvent: (CatScreenEvent) -> Unit,
     selectedAudioId: String,
     paddingValues: PaddingValues
 ) {
@@ -30,7 +30,7 @@ fun RecommendedContent(
     }
 
     LaunchedEffect(Unit) {
-        onEvent(RecommendedEvent.GetAudioById(selectedAudioId))
+        onEvent(CatScreenEvent.GetAudioById(selectedAudioId))
     }
 
     Column(
@@ -79,7 +79,7 @@ fun RecommendedContent(
 fun RecommendedContentPreview() {
     KcTheme {
         RecommendedContent(
-            state = RecommendedState(),
+            state = CatState(),
             onEvent = {},
             selectedAudioId = "",
             paddingValues = PaddingValues()

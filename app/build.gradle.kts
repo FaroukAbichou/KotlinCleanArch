@@ -109,7 +109,7 @@ dependencies {
 sqldelight {
     databases {
         create("MyDatabase") { //Should be a Meaningfully name
-//            packageName.set("com.faroukabichou.kotlincleanarch.audio.data.local")
+
         }
     }
 }
