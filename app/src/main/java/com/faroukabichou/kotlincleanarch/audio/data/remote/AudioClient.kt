@@ -1,5 +1,6 @@
 package com.faroukabichou.kotlincleanarch.audio.data.remote
 
+import com.faroukabichou.kotlincleanarch.core.network.NetworkConstants.BASE_URL
 import com.faroukabichou.kotlincleanarch.core.network.helper.handleErrors
 import io.ktor.client.*
 import io.ktor.client.request.*
@@ -8,7 +9,7 @@ import io.ktor.client.request.*
 class AudioClient(
     private val httpClient: HttpClient
 ) {
-    private val route = "b5f54ecf-c5ea-4e62-90d2-83e76606a922"
+    private val route = BASE_URL
 
     suspend fun getAllAudios(): List<AudioData> = handleErrors<AudioResponse> {
         httpClient.get(route)

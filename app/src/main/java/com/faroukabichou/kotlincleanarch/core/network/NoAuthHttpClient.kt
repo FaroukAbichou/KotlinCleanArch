@@ -1,5 +1,6 @@
 package com.faroukabichou.kotlincleanarch.core.network
 
+import com.faroukabichou.kotlincleanarch.core.network.NetworkConstants.BASE_URL
 import io.ktor.client.*
 import io.ktor.client.plugins.*
 import io.ktor.client.plugins.contentnegotiation.*
@@ -11,7 +12,7 @@ import kotlinx.serialization.json.Json
 fun createNoAuthHttpClient(): HttpClient {
     return HttpClient().config {
         defaultRequest {
-            url(ApiBaseUrl)
+            url(BASE_URL)
             contentType(ContentType.Application.Json)
         }
 
