@@ -2,8 +2,8 @@ package com.faroukabichou.kotlincleanarch.home.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.faroukabichou.kotlincleanarch.audio.domain.Audio
-import com.faroukabichou.kotlincleanarch.audio.domain.AudioRepository
+import com.faroukabichou.kotlincleanarch.cat.domain.Audio
+import com.faroukabichou.kotlincleanarch.cat.domain.CatRepository
 import com.faroukabichou.kotlincleanarch.home.presentation.event.HomeEvent
 import com.faroukabichou.kotlincleanarch.home.presentation.state.HomeState
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,7 +16,7 @@ import org.koin.core.component.inject
 
 class HomeViewModel : ViewModel(), KoinComponent {
 
-    private val repository: AudioRepository by inject()
+    private val repository: CatRepository by inject()
 
     private val _state = MutableStateFlow(HomeState())
     val state = _state

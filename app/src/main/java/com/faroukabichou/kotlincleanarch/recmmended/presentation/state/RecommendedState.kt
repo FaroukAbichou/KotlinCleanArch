@@ -1,6 +1,6 @@
 package com.faroukabichou.kotlincleanarch.recmmended.presentation.state
 
-import com.faroukabichou.kotlincleanarch.audio.domain.Audio
+import com.faroukabichou.kotlincleanarch.cat.domain.Audio
 
 data class RecommendedState(
     val isSuccess: Boolean = false,

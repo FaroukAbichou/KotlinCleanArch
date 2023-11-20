@@ -1,10 +1,10 @@
-package com.faroukabichou.kotlincleanarch.audio.data.local.audio
+package com.faroukabichou.kotlincleanarch.cat.data.local.audio
 
 import com.faroukabichou.kotlincleanarch.MyDatabase
-import com.faroukabichou.kotlincleanarch.audio.domain.Audio
+import com.faroukabichou.kotlincleanarch.cat.domain.Audio
 import database.AudioEntity
 
-class AudioDao(
+class CatDao(
     audioDatabase: MyDatabase
 ) {
     private val queries = audioDatabase.audioQueries

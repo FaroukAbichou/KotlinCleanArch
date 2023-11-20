@@ -90,7 +90,6 @@ fun KcIconButton(
 ) {
     Box(
         modifier = Modifier
-            .size(24.dp)
             .clip(CircleShape)
             .background(
                 color = MaterialTheme.colorScheme.secondary,
@@ -99,7 +98,6 @@ fun KcIconButton(
     ) {
         image()
     }
-
 }
 
 @Preview

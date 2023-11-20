@@ -1,4 +1,4 @@
-package com.faroukabichou.kotlincleanarch.audio.domain
+package com.faroukabichou.kotlincleanarch.cat.domain
 
 data class Audio(
     val id: String,
