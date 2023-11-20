@@ -1,0 +1,46 @@
+CREATE TABLE audioEntity(
+    id TEXT NOT NULL PRIMARY KEY,
+    title TEXT NOT NULL,
+    artist TEXT NOT NULL,
+    artwork TEXT NOT NULL,
+    url TEXT NOT NULL
+);
+
+getAudioById:
+SELECT * FROM audioEntity WHERE id = ?;
+
+getAllAudio:
+SELECT * FROM audioEntity;
+
+insertAudio:
+INSERT INTO audioEntity(
+id,
+ title,
+  artist,
+   artwork,
+    url
+    ) VALUES(
+    ?,
+     ?,
+      ?,
+      ?,
+       ?
+       );
+
+replaceAudio:
+REPLACE INTO audioEntity(
+id,
+ title,
+  artist,
+   artwork,
+    url
+    ) VALUES(
+    ?,
+     ?,
+      ?,
+      ?,
+       ?
+       );
+
+deleteAudio:
+DELETE FROM audioEntity WHERE id = ?;
