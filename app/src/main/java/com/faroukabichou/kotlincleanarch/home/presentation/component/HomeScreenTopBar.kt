@@ -53,7 +53,7 @@ fun HomeScreenTopBar(
             )
         } else {
             AsyncImage(
-                model = profileImage,
+                model = "profileImage",
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier

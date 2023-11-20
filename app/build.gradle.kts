@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "com.faroukabichou.kotlincleanarch"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.faroukabichou.kotlincleanarch"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -42,6 +42,10 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
     }
+    packagingOptions {
+        exclude("META-INF/INDEX.LIST")
+        exclude("META-INF/versions/9/previous-compilation-data.bin")
+    }
 }
 
 dependencies {
@@ -49,7 +53,6 @@ dependencies {
     // Core
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.activityCompose)
-
     // ViewModel
     implementation(libs.androidx.lifecycle.viewmodel)
     implementation(libs.androidx.lifecycle.viewmodelCompose)
@@ -99,16 +102,14 @@ dependencies {
     implementation(libs.ktor.client.auth)
     implementation(libs.logback.classic)
 
-
     //SQL Delight
     implementation(libs.sqlDelight.driver.android)
 }
 
-
 sqldelight {
     databases {
         create("MyDatabase") { //Should be a Meaningfully name
-            packageName.set("com.faroukabichou.kotlincleanarch.audio.data.local")
+//            packageName.set("com.faroukabichou.kotlincleanarch.audio.data.local")
         }
     }
 }

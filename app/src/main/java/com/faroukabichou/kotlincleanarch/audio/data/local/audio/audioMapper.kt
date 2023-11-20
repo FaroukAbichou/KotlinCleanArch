@@ -1,7 +1,7 @@
 package com.faroukabichou.kotlincleanarch.audio.data.local.audio
 
 import com.faroukabichou.kotlincleanarch.audio.domain.Audio
-import database.audioEntity
+import database.AudioEntity
 
 fun AudioEntity.toAudio(): Audio {
     return Audio(

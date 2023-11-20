@@ -47,12 +47,10 @@ fun KcRecommendedSection(
             modifier = Modifier
                 .fillMaxWidth()
         ) {
-            items(recommended.size) {
+            items(4) {
                 KcRecommendedCard(
                     state = state,
                     onEvent = onEvent,
-                    audio = recommended[it],
-                    mediaPlayer = mediaPlayer,
                     navigateToRecommended = navigateToRecommended,
                 )
                 Spacer(modifier = Modifier.width(20.dp))
