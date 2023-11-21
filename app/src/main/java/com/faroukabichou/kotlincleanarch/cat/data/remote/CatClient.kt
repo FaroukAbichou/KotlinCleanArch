@@ -5,7 +5,6 @@ import com.faroukabichou.kotlincleanarch.core.network.helper.handleErrors
 import io.ktor.client.*
 import io.ktor.client.request.*
 
-
 class CatClient(
     private val httpClient: HttpClient
 ) {

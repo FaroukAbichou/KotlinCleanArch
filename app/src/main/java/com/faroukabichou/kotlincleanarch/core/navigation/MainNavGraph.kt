@@ -9,10 +9,10 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.faroukabichou.kotlincleanarch.home.presentation.HomeScreen
-import com.faroukabichou.kotlincleanarch.home.presentation.HomeViewModel
 import com.faroukabichou.kotlincleanarch.details.presentation.DetailsScreen
 import com.faroukabichou.kotlincleanarch.details.presentation.DetailsViewModel
+import com.faroukabichou.kotlincleanarch.home.presentation.HomeScreen
+import com.faroukabichou.kotlincleanarch.home.presentation.HomeViewModel
 
 @Composable
 fun MainNavGraph(
@@ -20,7 +20,7 @@ fun MainNavGraph(
 ) {
     NavHost(
         navController = navController,
-        startDestination = Routes.Music.route
+        startDestination = Routes.Home.route
     ) {
         composable(
             route = Routes.Home.route
@@ -31,34 +31,29 @@ fun MainNavGraph(
             HomeScreen(
                 state = state,
                 onEvent = viewModel::onEvent,
-                navigateToRecommended = {musicId ->
+                navigateToRecommended = { catId ->
                     navController.navigate(
-                        route = Routes.Recommended.route  + "/${musicId}"
-                    )
-                },
-                navigateToPlayList = { musicId ->
-                    navController.navigate(
-                        route = Routes.Music.route + "/${musicId}"
+                        route = Routes.Details.route + "/${catId}"
                     )
                 },
             )
         }
         composable(
-            route = "${Routes.Recommended.route}/{musicId}",
+            route = "${Routes.Details.route}/{catId}",
             arguments = listOf(
-                navArgument("musicId") {
+                navArgument("catId") {
                     type = NavType.StringType
                 }
             )
         ) { backStackEntry ->
-            val musicId = backStackEntry.arguments?.getString("musicId") ?: ""
+            val catId = backStackEntry.arguments?.getString("catId") ?: ""
             val viewModel = viewModel<DetailsViewModel>()
             val state by viewModel.state.collectAsStateWithLifecycle()
 
             DetailsScreen(
                 state = state,
                 onEvent = viewModel::onEvent,
-                selectedAudioId = musicId,
+                selectedAudioId = catId,
                 navigateBack = {
                     navController.popBackStack()
                 },

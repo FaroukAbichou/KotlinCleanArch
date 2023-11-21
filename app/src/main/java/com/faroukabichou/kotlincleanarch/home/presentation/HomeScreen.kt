@@ -20,7 +20,6 @@ fun HomeScreen(
     state: HomeState,
     onEvent: (HomeEvent) -> Unit,
     navigateToRecommended: (String) -> Unit,
-    navigateToPlayList: (Int) -> Unit,
 ) {
     Scaffold(
         content = {

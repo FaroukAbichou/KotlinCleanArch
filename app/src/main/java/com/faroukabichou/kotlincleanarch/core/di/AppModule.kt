@@ -16,4 +16,3 @@ fun initKoin(appDeclaration: KoinAppDeclaration) = run {
         )
     }
 }
-
