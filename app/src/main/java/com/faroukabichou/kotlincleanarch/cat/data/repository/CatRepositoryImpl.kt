@@ -15,7 +15,9 @@ class CatRepositoryImpl(
         return if (useCache) {
             runCatching { catDao.getRandomCat().toCat() }
         } else {
-            runCatching { catClient.getRandomCat().toCat() }
+            runCatching {
+                catClient.getRandomCats(1).map { it.toCat() }.first()
+            }
         }
     }
 
@@ -27,7 +29,7 @@ class CatRepositoryImpl(
             runCatching { catDao.getMultipleRandomCats(limit.toLong()).map { it.toCat() } }
         } else {
             runCatching {
-                catClient.getMultipleRandomCats(limit).map { it.toCat() }
+                catClient.getRandomCats(limit).map { it.toCat() }
             }
         }
 
@@ -55,5 +57,6 @@ class CatRepositoryImpl(
             runCatching { catClient.getCatById(id).toCat() }
         }
     }
+
 
 }

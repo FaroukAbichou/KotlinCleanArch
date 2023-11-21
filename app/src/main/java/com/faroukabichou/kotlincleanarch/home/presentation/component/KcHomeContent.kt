@@ -1,11 +1,13 @@
 package com.faroukabichou.kotlincleanarch.home.presentation.component
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Text
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,32 +23,26 @@ fun KcHomeContent(
     onEvent: (HomeEvent) -> Unit,
     paddingValues: PaddingValues,
 ) {
-    val scrollState = rememberScrollState()
-
     if (state.cats == null) {
         Text(
             text = "No cats",
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(24.dp),
+            modifier = Modifier,
             style = MaterialTheme.typography.displayMedium,
         )
     } else {
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .verticalScroll(scrollState)
                 .padding(paddingValues = paddingValues)
                 .padding(horizontal = 24.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(24.dp)
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            items(state.cats.size) {
+            items(state.cats) { cat ->
                 KcCatCard(
-                    cat = state.cats[it],
+                    cat = cat,
                     onEvent = onEvent,
                 )
-                Spacer(modifier = Modifier.height(10.dp))
             }
         }
     }
