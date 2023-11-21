@@ -26,7 +26,7 @@ fun KcTitle(
 fun KcTitlePreview() {
     KcTheme {
         KcTitle(
-            title = stringResource(id = R.string.recommended),
+            title = stringResource(id = R.string.home),
         )
     }
 }

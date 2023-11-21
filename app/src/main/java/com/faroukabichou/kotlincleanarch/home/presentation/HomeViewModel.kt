@@ -2,7 +2,6 @@ package com.faroukabichou.kotlincleanarch.home.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.faroukabichou.kotlincleanarch.cat.domain.Audio
 import com.faroukabichou.kotlincleanarch.cat.domain.CatRepository
 import com.faroukabichou.kotlincleanarch.home.presentation.event.HomeEvent
 import com.faroukabichou.kotlincleanarch.home.presentation.state.HomeState
@@ -27,30 +26,30 @@ class HomeViewModel : ViewModel(), KoinComponent {
         )
 
     init {
-        getAllAudio()
+        getRandomCats()
     }
 
     fun onEvent(event: HomeEvent) {
         when (event) {
-            HomeEvent.Refresh -> {
-                getAllAudio()
+            HomeEvent.GetRandomCats -> {
+                getRandomCats()
             }
         }
     }
 
-    private fun getAllAudio() {
+    private fun getRandomCats(limit: Int = 10) {
         _state.value = _state.value.copy(
             isLoading = true,
         )
 
         viewModelScope.launch {
             repository
-                .getAllAudios()
+                .getMultipleRandomCats(limit)
                 .onSuccess {
                     _state.value = _state.value.copy(
-                        // TODO:
                         isSuccess = true,
                         isLoading = false,
+                        randomCats = it
                     )
                 }
                 .onFailure {
@@ -60,42 +59,6 @@ class HomeViewModel : ViewModel(), KoinComponent {
                     )
                 }
 
-        }
-    }
-
-    private fun getRecentlyPlayedAudios() {
-        viewModelScope.launch {
-            repository
-                .getRecentlyPlayedAudios()
-                .onSuccess {
-                    _state.value = _state.value.copy(
-                        // TODO:
-                    )
-                }
-                .onFailure {
-                    _state.value = _state.value.copy(
-                        // TODO:
-                    )
-                }
-        }
-    }
-
-    private fun insertAudioToRecentlyPlayed(
-        audio: Audio
-    ) {
-        viewModelScope.launch {
-            repository
-                .insertAudioToRecentlyPlayed(audio)
-                .onSuccess {
-                    _state.value = _state.value.copy(
-                        // TODO:
-                    )
-                }
-                .onFailure {
-                    _state.value = _state.value.copy(
-                        // TODO:
-                    )
-                }
         }
     }
 }

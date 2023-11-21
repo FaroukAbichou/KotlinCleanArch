@@ -38,6 +38,7 @@ fun MainNavGraph(
                 },
             )
         }
+
         composable(
             route = "${Routes.Details.route}/{catId}",
             arguments = listOf(

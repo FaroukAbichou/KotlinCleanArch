@@ -27,25 +27,22 @@ class DetailsViewModel : ViewModel(), KoinComponent {
 
     fun onEvent(event: DetailsScreenEvent) {
         when (event) {
+            is DetailsScreenEvent.GetCatDetailsById -> getCatById(event.id)
 
-            is DetailsScreenEvent.GetDetailsById -> getCatById(event.id)
+            is DetailsScreenEvent.GetRandomCats -> getMultipleRandomCats(event.number)
 
+            DetailsScreenEvent.GetRandomCat -> getMultipleRandomCats()
         }
     }
 
     private fun getCatById(id: String) {
-
-    }
-
-
-    private fun getMultipleRandomCats(limit : Int = 10) {
         _state.value = _state.value.copy(
             isLoading = true,
         )
 
         viewModelScope.launch {
             repository
-                .getMultipleRandomCats(limit)
+                .getCatById(id)
                 .onSuccess {
                     _state.value = _state.value.copy(
                         isSuccess = true,
@@ -61,5 +58,7 @@ class DetailsViewModel : ViewModel(), KoinComponent {
                 }
 
         }
+
     }
+
 }
