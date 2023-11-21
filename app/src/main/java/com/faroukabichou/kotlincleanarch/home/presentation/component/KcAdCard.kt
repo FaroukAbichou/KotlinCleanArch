@@ -34,7 +34,7 @@ fun KcAdCard(
         contentAlignment = Alignment.TopStart
     ) {
         Image(
-            painter = painterResource(id = R.drawable.ad_backgroud),
+            painter = painterResource(id = R.drawable.back),
             contentDescription = null,
             modifier = Modifier
                 .align(Alignment.BottomCenter)
@@ -80,7 +80,6 @@ fun KcAdCard(
         }
     }
 }
-
 
 @Preview
 @Composable

@@ -24,14 +24,11 @@ class DetailsViewModel : ViewModel(), KoinComponent {
             DetailsState()
         )
 
-
     fun onEvent(event: DetailsScreenEvent) {
         when (event) {
             is DetailsScreenEvent.GetCatDetailsById -> getCatById(event.id)
 
-            is DetailsScreenEvent.GetRandomCats -> getMultipleRandomCats(event.number)
-
-            DetailsScreenEvent.GetRandomCat -> getMultipleRandomCats()
+            DetailsScreenEvent.GetRandomCat -> getRandomCat()
         }
     }
 
@@ -56,9 +53,31 @@ class DetailsViewModel : ViewModel(), KoinComponent {
                         isLoading = false,
                     )
                 }
+        }
+    }
 
+    private fun getRandomCat() {
+        _state.value = _state.value.copy(
+            isLoading = true,
+        )
+
+        viewModelScope.launch {
+            repository
+                .getRandomCat()
+                .onSuccess {
+                    _state.value = _state.value.copy(
+                        isSuccess = true,
+                        isLoading = false,
+                        cat = it
+                    )
+                }
+                .onFailure {
+                    _state.value = _state.value.copy(
+                        isFailure = true,
+                        isLoading = false,
+                    )
+                }
         }
 
     }
-
 }

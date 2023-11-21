@@ -13,7 +13,6 @@ fun DetailsScreen(
     state: DetailsState,
     onEvent: (DetailsScreenEvent) -> Unit,
     selectedAudioId: String,
-    navigateBack: () -> Unit,
 ) {
     Scaffold(
         topBar = {},

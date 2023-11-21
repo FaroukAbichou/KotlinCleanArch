@@ -32,9 +32,7 @@ fun KcRecommendedCard(
     navigateToRecommended: (String) -> Unit,
 ) {
     Button(
-        onClick = {
-            // TODO:
-                  },
+        onClick = {},
         modifier = Modifier
             .width(270.dp)
             .height(280.dp),
@@ -99,12 +97,10 @@ fun KcRecommendedCard(
                     )
                 }
                 KcIconButton(
-                    onClick = {
-
-                    },
+                    onClick = {},
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.pause),
+                        painter = painterResource(id = R.drawable.back),
                         contentDescription = null,
                         modifier = Modifier
                             .height(24.dp)

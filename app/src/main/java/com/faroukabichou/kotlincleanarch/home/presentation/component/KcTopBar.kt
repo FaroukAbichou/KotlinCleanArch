@@ -8,10 +8,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -32,8 +28,6 @@ fun KcTopBar(
     title: String,
     @DrawableRes icon: Int,
 ) {
-    var isSearchBarVisible by rememberSaveable { mutableStateOf(false) }
-
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -45,40 +39,32 @@ fun KcTopBar(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
-        if (isSearchBarVisible) {
-            KcSearchBar(
-                state = state,
-                onEvent = onEvent,
-                onHideSearchBar = { isSearchBarVisible = false },
-            )
-        } else {
-            AsyncImage(
-                model = "profileImage",
+        AsyncImage(
+            model = "profileImage",
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .size(30.dp)
+                .clip(CircleShape)
+        )
+
+        Text(
+            text = title,
+            color = MaterialTheme.colorScheme.tertiary,
+            style = MaterialTheme.typography.titleMedium,
+            modifier = Modifier
+        )
+
+        KcIconButton(
+            onClick = {},
+        ) {
+            Image(
+                painter = painterResource(id = icon),
                 contentDescription = null,
-                contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .size(30.dp)
+                    .height(24.dp)
                     .clip(CircleShape)
             )
-
-            Text(
-                text = title,
-                color = MaterialTheme.colorScheme.tertiary,
-                style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier
-            )
-
-            KcIconButton(
-                onClick = { isSearchBarVisible = !isSearchBarVisible },
-            ){
-                Image(
-                    painter = painterResource(id = icon),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .height(24.dp)
-                        .clip(CircleShape)
-                )
-            }
         }
     }
 }
@@ -107,7 +93,7 @@ fun TopBarPreview() {
         KcTopBar(
             state = HomeState(),
             title = "Home",
-            icon = R.drawable.search
+            icon = R.drawable.back
         )
     }
 }

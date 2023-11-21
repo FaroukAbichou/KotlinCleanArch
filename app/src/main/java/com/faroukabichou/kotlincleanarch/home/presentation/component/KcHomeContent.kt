@@ -36,7 +36,7 @@ fun KcHomeContent(
             state = state,
             onEvent = onEvent,
             title = stringResource(R.string.home),
-            icon = R.drawable.search
+            icon = R.drawable.back
         )
         KcAdCard { }
         KcRecommendedSection(
@@ -47,7 +47,9 @@ fun KcHomeContent(
         KcRandomCats(
             state = state,
             onEvent = onEvent
-        ) { }
+        ) {
+
+        }
     }
 }
 
