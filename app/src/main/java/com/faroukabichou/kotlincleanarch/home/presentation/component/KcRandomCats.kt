@@ -46,7 +46,7 @@ fun KcRandomCats(
             repeat( 4
                 /*todo */
             ) {
-                KcTrackCard(
+                KcCatBox(
                     state = state,
                     onEvent = onEvent,
                     navigateToPlayAudio = navigateToPlayAudio
