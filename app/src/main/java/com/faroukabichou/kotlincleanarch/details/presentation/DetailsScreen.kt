@@ -21,6 +21,9 @@ fun DetailsScreen(
             KcTopBar(
                 icon = R.drawable.back,
                 title = "Details",
+                onActionButtonClick = {
+                    onEvent(DetailsScreenEvent.NavigateBack)
+                }
             )
         },
         content = {

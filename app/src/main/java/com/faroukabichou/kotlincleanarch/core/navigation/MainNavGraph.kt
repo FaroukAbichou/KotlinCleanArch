@@ -11,6 +11,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.faroukabichou.kotlincleanarch.details.presentation.DetailsScreen
 import com.faroukabichou.kotlincleanarch.details.presentation.DetailsViewModel
+import com.faroukabichou.kotlincleanarch.details.presentation.event.DetailsScreenEvent
 import com.faroukabichou.kotlincleanarch.home.presentation.HomeScreen
 import com.faroukabichou.kotlincleanarch.home.presentation.HomeViewModel
 import com.faroukabichou.kotlincleanarch.home.presentation.event.HomeEvent
@@ -57,8 +58,16 @@ fun MainNavGraph(
 
             DetailsScreen(
                 state = state,
-                onEvent = viewModel::onEvent,
                 selectedAudioId = catId,
+                onEvent = {
+                    when (it) {
+                        is DetailsScreenEvent.NavigateBack -> {
+                            navController.popBackStack()
+                        }
+
+                        else -> viewModel.onEvent(it)
+                    }
+                },
             )
         }
     }

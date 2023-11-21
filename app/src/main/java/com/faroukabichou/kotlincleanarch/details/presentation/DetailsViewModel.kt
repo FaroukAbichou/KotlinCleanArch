@@ -24,11 +24,16 @@ class DetailsViewModel : ViewModel(), KoinComponent {
             DetailsState()
         )
 
+    init {
+        getRandomCat()
+    }
+
     fun onEvent(event: DetailsScreenEvent) {
         when (event) {
             is DetailsScreenEvent.GetCatDetailsById -> getCatById(id = event.id)
 
             DetailsScreenEvent.GetRandomCat -> getRandomCat()
+            else -> {}
         }
     }
 
