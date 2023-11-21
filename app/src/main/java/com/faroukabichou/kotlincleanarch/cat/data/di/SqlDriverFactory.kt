@@ -1,6 +1,6 @@
 package com.faroukabichou.kotlincleanarch.cat.data.di
 
-import com.faroukabichou.kotlincleanarch.cat.data.local.audio.CatDao
+import com.faroukabichou.kotlincleanarch.cat.data.local.CatDao
 import com.faroukabichou.kotlincleanarch.cat.data.local.createDatabase
 import com.faroukabichou.kotlincleanarch.cat.data.local.sqlDriverFactory
 import org.koin.dsl.module

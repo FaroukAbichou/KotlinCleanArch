@@ -1,6 +1,6 @@
 package com.faroukabichou.kotlincleanarch.cat.data.repository
 
-import com.faroukabichou.kotlincleanarch.cat.data.local.audio.CatDao
+import com.faroukabichou.kotlincleanarch.cat.data.local.CatDao
 import com.faroukabichou.kotlincleanarch.cat.data.remote.CatClient
 import com.faroukabichou.kotlincleanarch.cat.domain.Cat
 import com.faroukabichou.kotlincleanarch.cat.domain.CatRepository

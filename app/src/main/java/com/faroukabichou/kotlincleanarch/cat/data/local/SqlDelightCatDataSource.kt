@@ -1,4 +1,4 @@
-package com.faroukabichou.kotlincleanarch.cat.data.local.audio
+package com.faroukabichou.kotlincleanarch.cat.data.local
 
 import com.faroukabichou.kotlincleanarch.MyDatabase
 import com.faroukabichou.kotlincleanarch.cat.domain.Cat
