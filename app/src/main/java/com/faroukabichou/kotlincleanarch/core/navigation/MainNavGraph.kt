@@ -55,9 +55,6 @@ fun MainNavGraph(
                 state = state,
                 onEvent = viewModel::onEvent,
                 selectedAudioId = catId,
-                navigateBack = {
-                    navController.popBackStack()
-                },
             )
         }
     }

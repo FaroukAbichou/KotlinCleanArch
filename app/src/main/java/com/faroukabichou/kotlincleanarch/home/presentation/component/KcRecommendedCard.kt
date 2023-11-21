@@ -55,9 +55,7 @@ fun KcRecommendedCard(
                 modifier = Modifier
                     .clip(RoundedCornerShape(20.dp))
                     .weight(4f)
-                    .padding(
-                        10.dp,
-                    )
+                    .padding(10.dp)
             ) {
                 AsyncImage(
                     model = "",

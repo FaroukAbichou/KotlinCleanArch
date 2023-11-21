@@ -37,14 +37,14 @@ class HomeViewModel : ViewModel(), KoinComponent {
         }
     }
 
-    private fun getRandomCats(limit: Int = 10) {
+    private fun getRandomCats(useCash :Boolean =false,limit: Int = 10) {
         _state.value = _state.value.copy(
             isLoading = true,
         )
 
         viewModelScope.launch {
             repository
-                .getMultipleRandomCats(limit)
+                .getMultipleRandomCats(useCash,limit)
                 .onSuccess {
                     _state.value = _state.value.copy(
                         isSuccess = true,

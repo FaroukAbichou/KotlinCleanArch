@@ -8,5 +8,5 @@ import org.koin.dsl.module
 val databaseModule = module {
     factory { sqlDriverFactory() }
     single { createDatabase(driver = get()) }
-    single { CatDao(audioDatabase = get()) }
+    single { CatDao(database = get()) }
 }

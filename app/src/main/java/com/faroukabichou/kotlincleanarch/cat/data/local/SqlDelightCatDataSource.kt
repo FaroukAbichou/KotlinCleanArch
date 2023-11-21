@@ -4,42 +4,44 @@ import com.faroukabichou.kotlincleanarch.MyDatabase
 import com.faroukabichou.kotlincleanarch.cat.domain.Cat
 import database.CatEntity
 
-class CatDao(
-    audioDatabase: MyDatabase
-) {
-    private val queries = audioDatabase.audioQueries
-    fun insertAudio(audio: Cat) {
+class CatDao(database: MyDatabase) {
+    private val queries = database.catQueries
+
+    fun insertCat(cat: Cat) {
         queries.insertCat(
-            height = audio.height,
-            id = audio.id,
-            url = audio.url,
-            width = audio.width
+            id = cat.id,
+            url = cat.url,
+            width = cat.width,
+            height = cat.height
         )
     }
 
-    fun getAllAudio(): List<CatEntity> {
-        return queries
-            .getAllCats()
-            .executeAsList()
+    fun getAllCats(): List<CatEntity> {
+        return queries.getAllCats().executeAsList()
     }
 
-    fun getAudioById(id : String): CatEntity {
-        return queries
-            .getCatById(id)
-            .executeAsList()
-            .last()
+    fun getCatById(id: String): CatEntity {
+        return queries.getCatById(id).executeAsOne()
     }
 
-    fun deleteAudio(id: String) {
+    fun deleteCat(id: String) {
         queries.deleteCat(id)
     }
 
-    fun updateAudio(audio: Cat) {
+    fun updateCat(cat: Cat) {
         queries.replaceCat(
-            id = audio.id,
-            height = audio.height,
-            width = audio.width,
-            url = audio.url,
+            id = cat.id,
+            url = cat.url,
+            width = cat.width,
+            height = cat.height
         )
+    }
+
+    fun getRandomCat(): CatEntity {
+        return queries.getRandomCat().executeAsOne()
+    }
+
+    fun getMultipleRandomCats(limit: Long): List<CatEntity> {
+        return queries.getRandomCats(limit).executeAsList()
     }
 }

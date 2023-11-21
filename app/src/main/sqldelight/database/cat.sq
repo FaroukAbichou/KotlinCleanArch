@@ -5,7 +5,7 @@ id TEXT PRIMARY KEY,
             url TEXT
 );
 
-getcatById:
+getCatById:
 SELECT * FROM catEntity WHERE id = ?;
 
 getAllCats:
@@ -22,7 +22,14 @@ id,
      ?,
       ?,
       ?
-      );
+);
+
+getRandomCat:
+SELECT * FROM catEntity ORDER BY RANDOM() LIMIT 1;
+
+
+getRandomCats:
+SELECT * FROM catEntity ORDER BY RANDOM() LIMIT ?;
 
 replaceCat:
 REPLACE INTO catEntity(
@@ -35,7 +42,7 @@ id,
      ?,
       ?,
       ?
-      );
+);
 
 deleteCat:
 DELETE FROM catEntity WHERE id = ?;

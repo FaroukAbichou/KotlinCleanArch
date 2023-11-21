@@ -28,7 +28,7 @@ fun HomeScreen(
             } else if (state.isFailure) {
                 KcError(
                     message = "Error",
-                    retry = { onEvent(HomeEvent.Refresh) }
+                    retry = {  }
                 )
             } else {
                 KcHomeContent(
