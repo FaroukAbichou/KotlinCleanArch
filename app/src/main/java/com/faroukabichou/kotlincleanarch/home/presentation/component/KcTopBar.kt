@@ -26,7 +26,7 @@ import com.faroukabichou.kotlincleanarch.home.presentation.event.HomeEvent
 import com.faroukabichou.kotlincleanarch.home.presentation.state.HomeState
 
 @Composable
-fun HomeScreenTopBar(
+fun KcTopBar(
     state: HomeState,
     onEvent: (HomeEvent) -> Unit = {},
     title: String,
@@ -104,7 +104,7 @@ fun KcIconButton(
 @Composable
 fun TopBarPreview() {
     KcTheme {
-        HomeScreenTopBar(
+        KcTopBar(
             state = HomeState(),
             title = "Home",
             icon = R.drawable.search

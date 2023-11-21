@@ -1,6 +1,5 @@
 package com.faroukabichou.kotlincleanarch.home.presentation.component
 
-import android.media.MediaPlayer
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.runtime.Composable
@@ -20,8 +19,6 @@ fun KcRecommendedSection(
     onEvent: (HomeEvent) -> Unit,
     navigateToRecommended: (String) -> Unit,
 ) {
-    val mediaPlayer = MediaPlayer()
-
     Column(
         modifier = Modifier
             .fillMaxWidth(),
@@ -36,7 +33,7 @@ fun KcRecommendedSection(
             verticalAlignment = Alignment.CenterVertically
         ) {
             KcTitle(
-                title = stringResource(id = R.string.recommended),
+                title = stringResource(id = R.string.see_all),
             )
             KcAction(
                 text = stringResource(id = R.string.see_all),

@@ -15,7 +15,7 @@ import com.faroukabichou.kotlincleanarch.home.presentation.event.HomeEvent
 import com.faroukabichou.kotlincleanarch.home.presentation.state.HomeState
 
 @Composable
-fun HomeContent(
+fun KcHomeContent(
     state: HomeState,
     onEvent: (HomeEvent) -> Unit,
     paddingValues: PaddingValues,
@@ -32,7 +32,7 @@ fun HomeContent(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
-        HomeScreenTopBar(
+        KcTopBar(
             state = state,
             onEvent = onEvent,
             title = stringResource(R.string.home),
@@ -44,7 +44,7 @@ fun HomeContent(
             onEvent = onEvent,
             navigateToRecommended = navigateToRecommended,
         )
-        KcRecentlyPlayedSection(
+        KcRandomCats(
             state = state,
             onEvent = onEvent
         ) { }
@@ -55,7 +55,7 @@ fun HomeContent(
 @Composable
 fun HomeContentPreview() {
     KcTheme {
-        HomeContent(
+        KcHomeContent(
             state = HomeState(),
             onEvent = { },
             paddingValues = PaddingValues(0.dp),

@@ -50,14 +50,14 @@ fun KcAdCard(
         ) {
             Column {
                 Text(
-                    text = stringResource(id = R.string.listening_music),
+                    text = stringResource(id = R.string.home),
                     color = MaterialTheme.colorScheme.tertiary,
                     style = MaterialTheme.typography.displayMedium,
                     modifier = Modifier
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = stringResource(id = R.string.without_ads),
+                    text = stringResource(id = R.string.home),
                     color = MaterialTheme.colorScheme.tertiary,
                     style = MaterialTheme.typography.displayMedium,
                     modifier = Modifier
@@ -71,7 +71,7 @@ fun KcAdCard(
                 ),
             ) {
                 Text(
-                    text = stringResource(id = R.string.try_for_free),
+                    text = stringResource(id = R.string.home),
                     color = MaterialTheme.colorScheme.background,
                     style = MaterialTheme.typography.labelLarge,
                     modifier = Modifier

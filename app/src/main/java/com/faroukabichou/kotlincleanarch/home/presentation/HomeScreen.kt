@@ -11,7 +11,7 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.faroukabichou.kotlincleanarch.R
-import com.faroukabichou.kotlincleanarch.home.presentation.component.HomeContent
+import com.faroukabichou.kotlincleanarch.home.presentation.component.KcHomeContent
 import com.faroukabichou.kotlincleanarch.home.presentation.event.HomeEvent
 import com.faroukabichou.kotlincleanarch.home.presentation.state.HomeState
 
@@ -31,7 +31,7 @@ fun HomeScreen(
                     retry = { onEvent(HomeEvent.Refresh) }
                 )
             } else {
-                HomeContent(
+                KcHomeContent(
                     state = state,
                     onEvent = onEvent,
                     paddingValues = it,

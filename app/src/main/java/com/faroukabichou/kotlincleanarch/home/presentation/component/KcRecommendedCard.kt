@@ -1,3 +1,5 @@
+@file:JvmName("KcRecommendedCardKt")
+
 package com.faroukabichou.kotlincleanarch.home.presentation.component
 
 import androidx.compose.foundation.Image
@@ -84,13 +86,13 @@ fun KcRecommendedCard(
                     verticalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
                     Text(
-                        text = "audio.title",
+                        text = "title",
                         color = MaterialTheme.colorScheme.tertiary,
                         style = MaterialTheme.typography.bodySmall,
                         modifier = Modifier
                     )
                     Text(
-                        text = "audio.author",
+                        text = "author",
                         color = MaterialTheme.colorScheme.tertiary,
                         style = MaterialTheme.typography.labelSmall,
                         modifier = Modifier

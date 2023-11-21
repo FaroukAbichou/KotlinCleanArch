@@ -12,9 +12,8 @@ import com.faroukabichou.kotlincleanarch.core.theme.KcTheme
 import com.faroukabichou.kotlincleanarch.home.presentation.event.HomeEvent
 import com.faroukabichou.kotlincleanarch.home.presentation.state.HomeState
 
-
 @Composable
-fun KcRecentlyPlayedSection(
+fun KcRandomCats(
     state: HomeState,
     onEvent: (HomeEvent) -> Unit,
     navigateToPlayAudio: (String) -> Unit
@@ -33,7 +32,7 @@ fun KcRecentlyPlayedSection(
             verticalAlignment = Alignment.CenterVertically
         ) {
             KcTitle(
-                title = stringResource(id = R.string.recently_played),
+                title = stringResource(id = R.string.see_all),
             )
             KcAction(
                 text = stringResource(id = R.string.see_all),
@@ -62,7 +61,7 @@ fun KcRecentlyPlayedSection(
 @Composable
 fun KcRecentlyPlayedSectionPreview() {
     KcTheme {
-        KcRecentlyPlayedSection(
+        KcRandomCats(
             state = HomeState(),
             onEvent = {}
         ) { }
