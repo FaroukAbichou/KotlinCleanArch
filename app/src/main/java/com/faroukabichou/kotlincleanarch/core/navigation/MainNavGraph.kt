@@ -58,13 +58,11 @@ fun MainNavGraph(
 
             DetailsScreen(
                 state = state,
-                selectedAudioId = catId,
                 onEvent = {
                     when (it) {
                         is DetailsScreenEvent.NavigateBack -> {
                             navController.popBackStack()
                         }
-
                         else -> viewModel.onEvent(it)
                     }
                 },

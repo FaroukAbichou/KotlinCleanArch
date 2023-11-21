@@ -6,11 +6,13 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.AsyncImage
 import com.faroukabichou.kotlincleanarch.R
 import com.faroukabichou.kotlincleanarch.core.component.KcError
 import com.faroukabichou.kotlincleanarch.core.component.KcLoading
 import com.faroukabichou.kotlincleanarch.core.component.KcTopBar
+import com.faroukabichou.kotlincleanarch.core.theme.KcTheme
 import com.faroukabichou.kotlincleanarch.details.presentation.event.DetailsScreenEvent
 import com.faroukabichou.kotlincleanarch.details.presentation.state.DetailsState
 
@@ -18,7 +20,6 @@ import com.faroukabichou.kotlincleanarch.details.presentation.state.DetailsState
 fun DetailsScreen(
     state: DetailsState,
     onEvent: (DetailsScreenEvent) -> Unit,
-    selectedAudioId: String,
 ) {
     Scaffold(
         topBar = {
@@ -52,4 +53,15 @@ fun DetailsScreen(
             }
         }
     )
+}
+
+@Preview
+@Composable
+private fun DetailsScreenPreview() {
+    KcTheme {
+        DetailsScreen(
+            state = DetailsState(),
+            onEvent = {}
+        )
+    }
 }

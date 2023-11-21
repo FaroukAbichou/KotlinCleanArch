@@ -15,7 +15,6 @@ import androidx.compose.ui.unit.dp
 import com.faroukabichou.kotlincleanarch.R
 import com.faroukabichou.kotlincleanarch.core.theme.KcTheme
 
-
 @Composable
 fun KcError(
     message: String,
@@ -41,7 +40,7 @@ fun KcError(
                 .size(80.dp)
         ) {
             Image(
-                painter = painterResource(id = R.drawable.ic_launcher_background),
+                painter = painterResource(id = R.drawable.back),
                 contentDescription = null,
                 modifier = Modifier
                     .fillMaxSize()
