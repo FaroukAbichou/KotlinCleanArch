@@ -20,7 +20,6 @@ fun HomeScreen(
         topBar = {
             KcTopBar(
                 title = stringResource(R.string.home),
-                icon = R.drawable.back
             )
         },
         content = { paddingValues ->

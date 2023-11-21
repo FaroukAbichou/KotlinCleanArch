@@ -21,7 +21,7 @@ import com.faroukabichou.kotlincleanarch.core.theme.KcTheme
 @Composable
 fun KcTopBar(
     title: String,
-    @DrawableRes icon: Int,
+    @DrawableRes icon: Int? = null,
     onActionButtonClick: () -> Unit = {}
 ) {
     Row(
@@ -42,6 +42,7 @@ fun KcTopBar(
             modifier = Modifier
         )
 
+        if (icon != null)
         KcIconButton(
             onClick = onActionButtonClick,
         ) {

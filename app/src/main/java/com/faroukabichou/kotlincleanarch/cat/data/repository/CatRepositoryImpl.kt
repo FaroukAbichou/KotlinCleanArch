@@ -26,11 +26,11 @@ class CatRepositoryImpl(
         return if (useCache) {
             runCatching { catDao.getMultipleRandomCats(limit.toLong()).map { it.toCat() } }
         } else {
-            println(
-                "CatRepositoryImpl.getRandomCat() ${catClient.getMultipleRandomCats(limit).map { it.toCat() }}"
-            )
-            runCatching { catClient.getMultipleRandomCats(limit).map { it.toCat() } }
+            runCatching {
+                catClient.getMultipleRandomCats(limit).map { it.toCat() }
+            }
         }
+
     }
 
     override suspend fun getSpecificBreedCats(
@@ -48,7 +48,7 @@ class CatRepositoryImpl(
         }
     }
 
-    override suspend fun getCatById(useCache: Boolean,id: String): Result<Cat> {
+    override suspend fun getCatById(useCache: Boolean, id: String): Result<Cat> {
         return if (useCache) {
             runCatching { catDao.getCatById(id).toCat() }
         } else {

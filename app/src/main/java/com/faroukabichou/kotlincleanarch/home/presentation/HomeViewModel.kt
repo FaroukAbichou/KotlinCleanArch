@@ -25,9 +25,9 @@ class HomeViewModel : ViewModel(), KoinComponent {
             HomeState()
         )
 
-//    init {
-//        getRandomCats()
-//    }
+    init {
+        getRandomCats()
+    }
 
     fun onEvent(event: HomeEvent) {
         when (event) {
