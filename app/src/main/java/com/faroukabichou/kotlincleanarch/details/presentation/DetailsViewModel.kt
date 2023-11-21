@@ -1,10 +1,10 @@
-package com.faroukabichou.kotlincleanarch.recmmended.presentation
+package com.faroukabichou.kotlincleanarch.details.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.faroukabichou.kotlincleanarch.cat.domain.CatRepository
-import com.faroukabichou.kotlincleanarch.recmmended.presentation.event.CatScreenEvent
-import com.faroukabichou.kotlincleanarch.recmmended.presentation.state.CatState
+import com.faroukabichou.kotlincleanarch.details.presentation.event.DetailsScreenEvent
+import com.faroukabichou.kotlincleanarch.details.presentation.state.DetailsState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
@@ -12,30 +12,25 @@ import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
-class CatViewModel : ViewModel(), KoinComponent {
+class DetailsViewModel : ViewModel(), KoinComponent {
 
     private val repository: CatRepository by inject()
 
-    private val _state = MutableStateFlow(CatState())
+    private val _state = MutableStateFlow(DetailsState())
     val state = _state
         .stateIn(
             viewModelScope,
             SharingStarted.WhileSubscribed(5000),
-            CatState()
+            DetailsState()
         )
 
 
-    fun onEvent(event: CatScreenEvent) {
+    fun onEvent(event: DetailsScreenEvent) {
         when (event) {
-            CatScreenEvent.Refresh -> refresh()
 
-            is CatScreenEvent.GetCatById -> getCatById(event.id)
+            is DetailsScreenEvent.GetDetailsById -> getCatById(event.id)
 
         }
-    }
-
-    private fun refresh() {
-        getMultipleRandomCats()
     }
 
     private fun getCatById(id: String) {

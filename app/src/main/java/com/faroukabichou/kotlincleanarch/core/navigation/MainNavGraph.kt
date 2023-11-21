@@ -11,8 +11,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.faroukabichou.kotlincleanarch.home.presentation.HomeScreen
 import com.faroukabichou.kotlincleanarch.home.presentation.HomeViewModel
-import com.faroukabichou.kotlincleanarch.recmmended.presentation.CatScreen
-import com.faroukabichou.kotlincleanarch.recmmended.presentation.CatViewModel
+import com.faroukabichou.kotlincleanarch.details.presentation.DetailsScreen
+import com.faroukabichou.kotlincleanarch.details.presentation.DetailsViewModel
 
 @Composable
 fun MainNavGraph(
@@ -52,10 +52,10 @@ fun MainNavGraph(
             )
         ) { backStackEntry ->
             val musicId = backStackEntry.arguments?.getString("musicId") ?: ""
-            val viewModel = viewModel<CatViewModel>()
+            val viewModel = viewModel<DetailsViewModel>()
             val state by viewModel.state.collectAsStateWithLifecycle()
 
-            CatScreen(
+            DetailsScreen(
                 state = state,
                 onEvent = viewModel::onEvent,
                 selectedAudioId = musicId,

@@ -1,8 +1,8 @@
-package com.faroukabichou.kotlincleanarch.recmmended.presentation.state
+package com.faroukabichou.kotlincleanarch.details.presentation.state
 
 import com.faroukabichou.kotlincleanarch.cat.domain.Cat
 
-data class CatState(
+data class DetailsState(
     val isSuccess: Boolean = false,
     val isLoading: Boolean = false,
     val isFailure: Boolean = false,
