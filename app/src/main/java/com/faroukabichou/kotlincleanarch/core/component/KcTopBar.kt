@@ -1,10 +1,11 @@
-package com.faroukabichou.kotlincleanarch.home.presentation.component
+package com.faroukabichou.kotlincleanarch.core.component
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -18,13 +19,9 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.faroukabichou.kotlincleanarch.R
 import com.faroukabichou.kotlincleanarch.core.theme.KcTheme
-import com.faroukabichou.kotlincleanarch.home.presentation.event.HomeEvent
-import com.faroukabichou.kotlincleanarch.home.presentation.state.HomeState
 
 @Composable
 fun KcTopBar(
-    state: HomeState,
-    onEvent: (HomeEvent) -> Unit = {},
     title: String,
     @DrawableRes icon: Int,
 ) {
@@ -74,13 +71,14 @@ fun KcIconButton(
     onClick: () -> Unit,
     image: @Composable () -> Unit
 ) {
-    Box(
+    IconButton(
+        onClick = onClick,
         modifier = Modifier
+            .size(30.dp)
             .clip(CircleShape)
             .background(
                 color = MaterialTheme.colorScheme.secondary,
-            ),
-        contentAlignment = Alignment.Center
+            )
     ) {
         image()
     }
@@ -91,7 +89,6 @@ fun KcIconButton(
 fun TopBarPreview() {
     KcTheme {
         KcTopBar(
-            state = HomeState(),
             title = "Home",
             icon = R.drawable.back
         )

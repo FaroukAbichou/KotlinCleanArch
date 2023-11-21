@@ -26,6 +26,9 @@ class CatRepositoryImpl(
         return if (useCache) {
             runCatching { catDao.getMultipleRandomCats(limit.toLong()).map { it.toCat() } }
         } else {
+            println(
+                "CatRepositoryImpl.getRandomCat() ${catClient.getMultipleRandomCats(limit).map { it.toCat() }}"
+            )
             runCatching { catClient.getMultipleRandomCats(limit).map { it.toCat() } }
         }
     }

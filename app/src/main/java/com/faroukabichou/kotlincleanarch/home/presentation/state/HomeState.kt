@@ -6,5 +6,5 @@ data class HomeState(
     val isSuccess: Boolean = false,
     val isLoading: Boolean = false,
     val isFailure: Boolean = false,
-    val randomCats: List<Cat>? = null,
+    val cats: List<Cat>? = null,
 )

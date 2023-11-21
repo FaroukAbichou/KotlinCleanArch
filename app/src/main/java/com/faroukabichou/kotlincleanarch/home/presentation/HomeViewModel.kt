@@ -25,15 +25,16 @@ class HomeViewModel : ViewModel(), KoinComponent {
             HomeState()
         )
 
-    init {
-        getRandomCats()
-    }
+//    init {
+//        getRandomCats()
+//    }
 
     fun onEvent(event: HomeEvent) {
         when (event) {
             HomeEvent.GetRandomCats -> {
                 getRandomCats()
             }
+            else -> {}
         }
     }
 
@@ -49,7 +50,7 @@ class HomeViewModel : ViewModel(), KoinComponent {
                     _state.value = _state.value.copy(
                         isSuccess = true,
                         isLoading = false,
-                        randomCats = it
+                        cats = it
                     )
                 }
                 .onFailure {

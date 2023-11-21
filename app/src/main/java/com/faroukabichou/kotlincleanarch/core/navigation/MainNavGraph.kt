@@ -13,6 +13,7 @@ import com.faroukabichou.kotlincleanarch.details.presentation.DetailsScreen
 import com.faroukabichou.kotlincleanarch.details.presentation.DetailsViewModel
 import com.faroukabichou.kotlincleanarch.home.presentation.HomeScreen
 import com.faroukabichou.kotlincleanarch.home.presentation.HomeViewModel
+import com.faroukabichou.kotlincleanarch.home.presentation.event.HomeEvent
 
 @Composable
 fun MainNavGraph(
@@ -30,12 +31,15 @@ fun MainNavGraph(
 
             HomeScreen(
                 state = state,
-                onEvent = viewModel::onEvent,
-                navigateToRecommended = { catId ->
-                    navController.navigate(
-                        route = Routes.Details.route + "/${catId}"
-                    )
-                },
+                onEvent = {
+                    when (it) {
+                        is HomeEvent.NavigateToCatDetails -> {
+                            navController.navigate("${Routes.Details.route}/${it.catId}")
+                        }
+
+                        else -> viewModel.onEvent(it)
+                    }
+                }
             )
         }
 

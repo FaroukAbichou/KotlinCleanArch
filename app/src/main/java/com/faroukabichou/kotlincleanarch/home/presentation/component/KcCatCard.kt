@@ -1,8 +1,5 @@
-@file:JvmName("KcRecommendedCardKt")
-
 package com.faroukabichou.kotlincleanarch.home.presentation.component
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -16,23 +13,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.faroukabichou.kotlincleanarch.R
+import com.faroukabichou.kotlincleanarch.cat.domain.Cat
 import com.faroukabichou.kotlincleanarch.core.theme.KcTheme
 import com.faroukabichou.kotlincleanarch.home.presentation.event.HomeEvent
-import com.faroukabichou.kotlincleanarch.home.presentation.state.HomeState
 
 @Composable
-fun KcRecommendedCard(
-    state: HomeState,
+fun KcCatCard(
+    cat: Cat,
     onEvent: (HomeEvent) -> Unit,
-    navigateToRecommended: (String) -> Unit,
 ) {
     Button(
-        onClick = {},
+        onClick = {
+            onEvent(HomeEvent.NavigateToCatDetails(cat.id))
+        },
         modifier = Modifier
             .width(270.dp)
             .height(280.dp),
@@ -58,8 +54,8 @@ fun KcRecommendedCard(
                     .padding(10.dp)
             ) {
                 AsyncImage(
-                    model = "",
-                    contentDescription = "",
+                    model = cat.url,
+                    contentDescription = "kittykitty",
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
                         .clip(RoundedCornerShape(20.dp))
@@ -82,26 +78,16 @@ fun KcRecommendedCard(
                     verticalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
                     Text(
-                        text = "title",
+                        text = cat.height.toString(),
                         color = MaterialTheme.colorScheme.tertiary,
                         style = MaterialTheme.typography.bodySmall,
                         modifier = Modifier
                     )
                     Text(
-                        text = "author",
+                        text = cat.width.toString(),
                         color = MaterialTheme.colorScheme.tertiary,
                         style = MaterialTheme.typography.labelSmall,
                         modifier = Modifier
-                    )
-                }
-                KcIconButton(
-                    onClick = {},
-                ) {
-                    Image(
-                        painter = painterResource(id = R.drawable.back),
-                        contentDescription = null,
-                        modifier = Modifier
-                            .height(24.dp)
                     )
                 }
             }
@@ -113,10 +99,9 @@ fun KcRecommendedCard(
 @Composable
 fun KcRecommendedCardPreview() {
     KcTheme {
-        KcRecommendedCard(
-            state = HomeState(),
+        KcCatCard(
+            cat = Cat.demoItem,
             onEvent = {},
-            navigateToRecommended = { },
         )
     }
 }

@@ -2,11 +2,13 @@ package com.faroukabichou.kotlincleanarch.details.presentation
 
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import com.faroukabichou.kotlincleanarch.R
+import com.faroukabichou.kotlincleanarch.core.component.KcError
+import com.faroukabichou.kotlincleanarch.core.component.KcLoading
+import com.faroukabichou.kotlincleanarch.core.component.KcTopBar
 import com.faroukabichou.kotlincleanarch.details.presentation.component.KcDetailsContent
 import com.faroukabichou.kotlincleanarch.details.presentation.event.DetailsScreenEvent
 import com.faroukabichou.kotlincleanarch.details.presentation.state.DetailsState
-import com.faroukabichou.kotlincleanarch.home.presentation.KcError
-import com.faroukabichou.kotlincleanarch.home.presentation.KcLoading
 
 @Composable
 fun DetailsScreen(
@@ -15,7 +17,12 @@ fun DetailsScreen(
     selectedAudioId: String,
 ) {
     Scaffold(
-        topBar = {},
+        topBar = {
+            KcTopBar(
+                icon = R.drawable.back,
+                title = "Details",
+            )
+        },
         content = {
             if (state.isLoading) {
                 KcLoading()
