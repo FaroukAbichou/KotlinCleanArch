@@ -57,6 +57,4 @@ class CatRepositoryImpl(
             runCatching { catClient.getCatById(id).toCat() }
         }
     }
-
-
 }
