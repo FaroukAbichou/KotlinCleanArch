@@ -10,15 +10,15 @@ class CatClient(
 ) {
     private val route = BASE_URL
 
-    suspend fun getRandomCats(limit: Int = 10): List<Cat> = handleErrors<List<Cat>> {
+    suspend fun getRandomCats(limit: Int = 10): List<CatResponse> = handleErrors<List<CatResponse>> {
         httpClient.get("$route/images/search?limit=$limit")
     }
 
-    suspend fun getSpecificBreedCats(breedId: String, limit: Int = 10, apiKey: String): List<Cat> = handleErrors<List<Cat>> {
+    suspend fun getSpecificBreedCats(breedId: String, limit: Int = 10, apiKey: String): List<CatResponse> = handleErrors<List<CatResponse>> {
         httpClient.get("$route/images/search?limit=$limit&breed_ids=$breedId&api_key=$apiKey")
     }
 
-    suspend fun getCatById(id: String): Cat = handleErrors<Cat> {
+    suspend fun getCatById(id: String): CatResponse = handleErrors<CatResponse> {
         httpClient.get("$route/images/$id")
     }
 }
